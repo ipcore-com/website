@@ -1,0 +1,518 @@
+/****************************************
+
+Fonts
+
+****************************************/
+
+@font-face {
+    font-family: 'Myriad Pro Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Regular'), url('/assets/fonts/myriadpro/MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Condensed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Condensed'), url('/assets/fonts/myriadpro/MYRIADPRO-COND.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Condensed Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Condensed Italic'), url('/assets/fonts/myriadpro/MYRIADPRO-CONDIT.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Light'), url('/assets/fonts/myriadpro/MyriadPro-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Semibold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Semibold'), url('/assets/fonts/myriadpro/MYRIADPRO-SEMIBOLD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Semibold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Semibold Italic'), url('/assets/fonts/myriadpro/MYRIADPRO-SEMIBOLDIT.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold Condensed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold Condensed'), url('/assets/fonts/myriadpro/MYRIADPRO-BOLDCOND.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold'), url('/assets/fonts/myriadpro/MYRIADPRO-BOLD.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold Italic'), url('/assets/fonts/myriadpro/MYRIADPRO-BOLDIT.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold Condensed Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Bold Condensed Italic'), url('/assets/fonts/myriadpro/MYRIADPRO-BOLDCONDIT.woff') format('woff');
+}
+
+
+/****************************************
+
+Styles
+
+****************************************/
+
+:root {
+    --bs-font-sans-serif: 'Lato', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --ip-font-title: 'Lato', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    --ip-font-subtitle: 'Lato', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    --ip-color-gray: #eaebee;
+    --ip-color-red: #ff1d0d;
+    --ip-navbar-brand-width: 130px;
+    --ip-navbar-brand-height: 59px;
+    --ip-wrapper-height: calc(100vh - 59px);
+}
+
+body {
+    font-family: var(--bs-font-sans-serif);
+    padding-top: 59px;
+}
+
+h1,
+h2,
+.h1,
+.h2 {
+    font-family: var(--ip-font-title);
+    font-weight: 900 !important;
+}
+
+h3,
+h4,
+h5,
+h6,
+.h3,
+.h4,
+.h5,
+.h6,
+.btn {
+    font-family: var(--ip-font-subtitle);
+    font-weight: 700 !important;
+    
+}
+
+.text-rights{
+    font-size: 0.5rem;
+}
+
+.contact-form-label{
+    font-size: 0.9rem;
+}
+
+.g-recaptcha {
+    transform:scale(0.87);
+    transform-origin:0 0;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.bg-partners{
+    background-color: #f4f5f8;
+}
+
+.partners-text{
+    color: #b2b6c1;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url('/assets/img/bars.svg');
+    background-size: 75%;
+
+}
+
+.ip-main-menu {
+    padding: 0;
+    background-color: white;
+}
+
+.ip-gradient-background {
+    color: #fff;
+    background: linear-gradient(red, transparent), linear-gradient(to top left, lime, transparent), linear-gradient(to top right, blue, transparent);
+    background-blend-mode: screen;
+    -webkit-animation: fadeIn ease 4.5s, Gradient 20s ease infinite;
+    -moz-animation: fadeIn ease 4.5s, Gradient 20s ease infinite;
+    animation: fadeIn ease 4.5s, Gradient 20s ease infinite;
+    width: var(--ip-navbar-brand-width);
+    height: var(--ip-navbar-brand-height);
+}
+
+.ip-courtain-background {
+    width: var(--ip-navbar-brand-width);
+    height: var(--ip-navbar-brand-height);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.ip-logo-background {
+    width: var(--ip-navbar-brand-width);
+    height: var(--ip-navbar-brand-height);
+    background-image: url('/assets/img/ipcore_new.svg');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 82%;
+    display: block;
+    color: transparent !important;
+}
+
+.logo-pulse-animation {
+    -webkit-animation: logoPulse 14s infinite;
+    -moz-animation: logoPulse 14s infinite;
+    animation: logoPulse 14s infinite;
+}
+
+@keyframes logoPulse {
+    0% {
+        background-color: rgba(0, 0, 0, 1);
+    }
+    40% {
+        background-color: rgba(0, 0, 0, 1);
+    }
+    50% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    60% {
+        background-color: rgba(0, 0, 0, 1);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.rounded {
+    border-radius: .75rem !important;
+}
+
+.fade-in-animation {
+    -webkit-animation: fadeIn ease 4.5s;
+    -moz-animation: fadeIn ease 4.5s;
+    animation: fadeIn ease 4.5s;
+}
+
+.cookies-dialog {
+	position:fixed;
+	top:auto;
+	right:auto;
+	left:auto;
+	bottom:0;
+	width: 100%;
+
+
+	margin-top: 0rem;
+	max-width: 100%;
+	
+	.buttons {
+	  .btn {
+		margin: 0.2rem;
+	  }
+	}
+}
+
+.cookies-dialog .modal-content {
+    border-radius: 0rem;
+}
+
+.ip-nav .nav-link,
+.ip-nav .nav-link.active {
+    color: var(--bs-dark);
+    text-transform: uppercase;
+    font-family: var(--ip-font-title);
+    font-size: 0.8em;
+}
+
+p {
+    font-size: 1.1rem !important;
+}
+.simple-p-text{
+    font-size: 1.1rem;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    p {
+        font-size: 1.2rem !important;
+    }
+    .simple-p-text{
+        font-size: 1.2rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    p {
+        font-size: 1.4rem !important;
+    }
+    .simple-p-text{
+        font-size: 1.4rem;
+    }
+}
+
+.ip-wrapper {
+    min-height: calc(100vh - 368px);
+}
+
+.ip-bg-gray {
+    background-color: var(--ip-color-gray);
+}
+
+.ip-wrapper.ip-card {
+    margin-top: 0;
+}
+
+.ip-footer {
+    position: absolute;
+    width: 100%;
+}
+
+.ip-footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.ip-footer .copy {
+    text-indent: 15px;
+    margin: 0;
+}
+
+.ip-bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.ip-bg:not(.ratio) {
+    min-height: var(--ip-wrapper-height);
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.ip-overlay {
+    background: radial-gradient(circle at top 45% left 50%, rgba(0, 0, 0, 0.5) 1%, rgba(0, 0, 0, 0.0) 15%);
+    min-height: var(--ip-wrapper-height);
+}
+
+.ip-jumbotron {
+    transform: translateY(-100%);
+    position: absolute;
+    width: 100vw;
+}
+
+.ip-portada {
+    background-image: url('/assets/img/pictures/portada-vertical.jpg');
+}
+
+@media (min-width: 576px) {
+    .ip-portada {
+        background-image: url('/assets/img/pictures/portada-horizontal.jpg');
+    }
+}
+
+.ip-datacenter {
+    background-image: url('/assets/img/pictures/descanso.jpg');
+}
+
+.half-page,
+.half-page .ip-overlay {
+    min-height: 50vh !important;
+}
+
+.full-page {
+    min-height: var(--ip-wrapper-height) !important;
+}
+
+.ip-card {
+    min-height: var(--ip-wrapper-height);
+}
+
+.ip-ups:before {
+    background-image: url('/assets/img/pictures/ups.jpg');
+}
+
+.ip-air-conditioner:before {
+    background-image: url('/assets/img/pictures/air-conditioner.jpg');
+}
+
+.ip-generador:before {
+    background-image: url('/assets/img/pictures/generador.jpg');
+}
+
+.ip-form label {
+    font-family: var(--ip-font-subtitle);
+}
+
+.ip-map-wrapper {
+    height: calc(100% - 65px);
+}
+
+.ip-map-wrapper iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .ip-map-wrapper {
+        max-height: calc(100% - 447px);
+    }
+}
+
+.extra-bold {
+    font-weight: 900 !important;
+}
+
+
+/* Cookies */
+
+.ip-collapse-alert {
+    background: none;
+    border: none;
+    margin-bottom: 0;
+}
+
+.ip-collapse-alert p {
+    display: none;
+}
+
+.accordion-collapse.collapse.show+.ip-collapse-alert {
+    background-color: var(--ip-color-gray);
+    margin-bottom: 1em;
+}
+
+.accordion-collapse.collapse.show+.ip-collapse-alert p {
+    display: block;
+}
+
+.ip-consent-radio .btn {
+    border-color: var(--bs-dark);
+    color: var(--bs-dark);
+}
+
+.ip-consent-radio .btn:hover {
+    color: white;
+}
+
+.ip-cookies .accordion-button {
+    padding-left: 1.5em;
+}
+
+.ip-cookies .accordion-button::after {
+    position: absolute;
+    left: 0;
+}
+
+.text-cookies-small{
+    font-size: 0.9rem;
+}
+
+
+.ip-cookies .modal-dialog {
+    margin-top: 3em;
+}
+
+.ip-cookies .modal-footer {
+    border-top: none;
+}
+
+.ip-cookies .btn {
+    border-radius: 6px;
+}
+
+.ip-cookies .btn-success {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.ip-cookies .btn-danger {
+    background-color: #DB695D;
+    border-color: #DB695D;
+}
+
+.ip-cookies .nav-link {
+    text-transform: uppercase;
+    color: var(--bs-dark);
+}
+
+.ip-cookies .nav-link::after {
+    content: "";
+    border-bottom: 3px solid var(--bs-dark);
+    border-radius: 3px;
+    display: block;
+    position: absolute;
+    width: 5rem;
+    transform: translateX(-4rem);
+}
+
+.btn-config-cookies {
+    background-color: white;
+    border-color: white;
+  }
+
+.ip-cookies .nav-link:hover::after,
+.ip-cookies .nav-link.active::after {
+    border-bottom-color: var(--ip-color-red);
+    width: 12rem;
+    transform: translateX(-4rem);
+}
+
+.cookies-panel{
+    background-color: #b2b6c1;
+}
+
+.ip-panel {
+    background-color: #b2b6c1;
+    position: fixed;
+    width: 100vw;
+    height: auto;
+    left: 0;
+    bottom: 0;
+    padding: 1em 0;
+}
+
+.ip-panel,
+.ip-panel a {
+    color: white;
+}

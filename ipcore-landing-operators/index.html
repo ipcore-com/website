@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPcore Datacenters - Soluciones Carrier Neutral para Operadores de Telecomunicaciones</title>
+    <meta name="description" content="Infraestructura carrier neutral en Madrid. Oferta especial: Rack 42U + 5 Cross-Connects por 499€/mes para operadores de telecomunicaciones.">
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self';
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+                   font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+                   script-src 'self' 'sha256-ieoeWczDHkReVBsRBqaal5AFMlBtNjMzgwKvLqi/tSU=';
+                   img-src 'self' data:;
+                   connect-src 'self' https://formspree.io;
+                   form-action 'self' https://formspree.io;
+                   base-uri 'self';">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>ipcore</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#conectividad" class="nav-link">Conectividad</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+                <button class="nav-cta" data-scroll-to="#contacto">Solicitar Presupuesto</button>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-background">
+            <img src="images/ipcore_official_datacenter.jpeg" alt="IPcore Datacenter Madrid - Pasillo principal con racks">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="hero-title">
+                    Infraestructura <span class="text-accent">Carrier Neutral</span><br>
+                    para Operadores de Telecomunicaciones
+                </h1>
+                <p class="hero-subtitle">
+                    Conecta tu red en el corazón de Madrid con la máxima flexibilidad y fiabilidad
+                </p>
+                
+                <div class="hero-offer">
+                    <div class="offer-badge">
+                        <i class="fas fa-fire"></i>
+                        <span>OFERTA ESPECIAL PARA OPERADORES</span>
+                    </div>
+                    <div class="offer-details">
+                        <h3>Rack 42U + 5 Cross-Connects</h3>
+                        <div class="offer-price">
+                            <span class="price">499€</span>
+                            <span class="period">/mes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" data-scroll-to="#contacto">
+                        <i class="fas fa-envelope"></i>
+                        Solicitar Información
+                    </button>
+                    <button class="btn btn-secondary" data-scroll-to="#conectividad">
+                        <i class="fas fa-network-wired"></i>
+                        Ver Conectividad
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oferta Especial -->
+    <section class="special-offer">
+        <div class="container">
+            <div class="section-header">
+                <h2>Paquete Completo para Operadores de Telecomunicaciones</h2>
+                <p>Todo lo que necesitas para conectar tu infraestructura en un solo paquete</p>
+            </div>
+            
+            <div class="offer-grid">
+                <div class="offer-features">
+                    <div class="feature-item">
+                        <i class="fas fa-server"></i>
+                        <div>
+                            <h4>Rack Privado 42U</h4>
+                            <p>Gabinete dedicado de 800mm x 1060mm con acceso exclusivo</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-network-wired"></i>
+                        <div>
+                            <h4>5 Cross-Connects</h4>
+                            <p>Conexiones directas a operadores en nuestro Meet-Me Room</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h4>Alimentación Redundante</h4>
+                            <p>Sistemas A+B con UPS 2N y generador de respaldo</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-headset"></i>
+                        <div>
+                            <h4>Soporte 24x7x365</h4>
+                            <p>Remote hands y asistencia técnica especializada</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ubicación Premium</h4>
+                            <p>Madrid capital, zona estratégica cerca del aeropuerto</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-handshake"></i>
+                        <div>
+                            <h4>Carrier Neutral</h4>
+                            <p>Acceso directo a más de 10 operadores diferentes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="offer-visual">
+                    <div class="price-card">
+                        <div class="price-header">
+                            <h3>Oferta Especial</h3>
+                            <p>Para operadores de telecomunicaciones</p>
+                        </div>
+                        <div class="price-amount">
+                            <span class="currency">€</span>
+                            <span class="amount">499</span>
+                            <span class="period">/mes</span>
+                        </div>
+                        <ul class="price-features">
+                            <li><i class="fas fa-check"></i> Rack 42U dedicado</li>
+                            <li><i class="fas fa-check"></i> 5 Cross-connects incluidos</li>
+                            <li><i class="fas fa-check"></i> Alimentación hasta 5kWA</li>
+                            <li><i class="fas fa-check"></i> Soporte técnico 24x7</li>
+                            <li><i class="fas fa-check"></i> Sin costes de instalación</li>
+                        </ul>
+                        <button class="btn btn-primary btn-full" data-scroll-to="#contacto">Solicitar Ahora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué IPcore -->
+    <section class="why-ipcore">
+        <div class="container">
+            <div class="section-header">
+                <h2>La ventaja competitiva que necesitas</h2>
+                <p>Descubre por qué los principales operadores confían en IPcore</p>
+            </div>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Carrier Neutral</h3>
+                    <p>Más de 10 operadores en el mismo edificio. Conecta y negocia directamente con los carriers que elijas.</p>
+                    <ul>
+                        <li>Cogent</li>
+                        <li>Colt</li>
+                        <li>Vodafone</li>
+                        <li>Adamo</li>
+                        <li>Aire Networks</li>
+                        <li>Lyntia</li>
+                        <li>Y más...</li>
+                    </ul>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Ubicación Estratégica</h3>
+                    <p>Madrid capital, zona empresarial con excelente conectividad nacional e internacional.</p>
+                    <ul>
+                        <li>Cerca del Aeropuerto Madrid-Barajas</li>
+                        <li>Acceso directo desde Autovía A-2</li>
+                        <li>Hub de conectividad europeo</li>
+                        <li>Zona de crecimiento tecnológico</li>
+                    </ul>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certificaciones y Calidad</h3>
+                    <p>Máximos estándares de calidad y eficiencia energética certificados internacionalmente.</p>
+                    <ul>
+                        <li>ISO-9001: Gestión de calidad</li>
+                        <li>ISO-50001: Eficiencia energética</li>
+                        <li>ISO-14001: Gestión ambiental</li>
+                        <li>Edificio de uso exclusivo</li>
+                    </ul>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Conectividad Premium</h3>
+                    <p>Enlaces directos a los principales puntos de intercambio nacionales e internacionales.</p>
+                    <ul>
+                        <li>Espanix (Madrid IXP)</li>
+                        <li>DE-CIX (Frankfurt)</li>
+                        <li>Múltiples rutas de fibra</li>
+                        <li>Redundancia geográfica</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Todo lo que necesitas en un solo lugar</h2>
+                <p>Servicios integrales para operadores de telecomunicaciones</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Colocation</h3>
+                    <ul>
+                        <li>Racks privados de 42U y 20U</li>
+                        <li>Espacios personalizados y cercados</li>
+                        <li>Meet-Me Room para carriers</li>
+                        <li>Espacio en azotea para antenas</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Networking</h3>
+                    <ul>
+                        <li>Cross-connects de fibra y cobre</li>
+                        <li>Data Center Interconnects (DCI)</li>
+                        <li>Enlaces a Internet Exchange Points</li>
+                        <li>Puntos de presencia de carriers</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Soporte Técnico</h3>
+                    <ul>
+                        <li>Remote hands 24x7x365</li>
+                        <li>Gestión de entregas de hardware</li>
+                        <li>Montaje en rack y cableado</li>
+                        <li>Gestión de RMA y devoluciones</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Infraestructura</h3>
+                    <ul>
+                        <li>Alimentación de 1kWA a 5kWA</li>
+                        <li>Refrigeración redundante 2N</li>
+                        <li>Seguridad física 24x7</li>
+                        <li>Sistema de detección de incendios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conectividad -->
+    <section id="conectividad" class="ecosystem-section">
+        <div class="ecosystem-container">
+            <div class="ecosystem-title">
+                <h2>Ecosistema de interconexión entre operadores</h2>
+                <p>Acceso directo a los principales operadores y puntos de intercambio</p>
+            </div>
+            
+            <div class="ecosystem-content">
+                <div class="connection-types">
+                    <h4>Tipos de Conexión</h4>
+                    <div class="connection-item">
+                        <i class="fas fa-plug"></i>
+                        <div>
+                            <strong>Cross-Connects</strong><br>
+                            <small>Conexiones directas entre racks</small>
+                        </div>
+                    </div>
+                    <div class="connection-item">
+                        <i class="fas fa-handshake"></i>
+                        <div>
+                            <strong>Meet-Me Room</strong><br>
+                            <small>Punto de interconexión neutral</small>
+                        </div>
+                    </div>
+                    <div class="connection-item">
+                        <i class="fas fa-network-wired"></i>
+                        <div>
+                            <strong>DCI Links</strong><br>
+                            <small>Enlaces entre datacenters</small>
+                        </div>
+                    </div>
+                    <div class="connection-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <strong>IXP Links</strong><br>
+                            <small>Conexión a puntos de intercambio</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="operators-section">
+                    <h4>Operadores Disponibles</h4>
+                    <div class="ecosystem-grid">
+                        <div class="ecosystem-operator">
+                            <img src="images/cogent_logo.webp" alt="Cogent" class="ecosystem-logo">
+                            <span>Cogent</span>
+                        </div>
+                        <div class="ecosystem-operator">
+                            <img src="images/colt_logo.webp" alt="Colt" class="ecosystem-logo">
+                            <span>Colt</span>
+                        </div>
+                        <div class="ecosystem-operator">
+                            <img src="images/vodafone_logo.webp" alt="Vodafone" class="ecosystem-logo">
+                            <span>Vodafone</span>
+                        </div>
+                        <div class="ecosystem-operator">
+                            <img src="images/adamo_logo.webp" alt="Adamo" class="ecosystem-logo">
+                            <span>Adamo</span>
+                        </div>
+                        <div class="ecosystem-operator">
+                            <img src="images/aire_networks_logo.webp" alt="Aire Networks" class="ecosystem-logo">
+                            <span>Aire Networks</span>
+                        </div>
+                        <div class="ecosystem-operator">
+                            <img src="images/lyntia_logo.webp" alt="Lyntia" class="ecosystem-logo">
+                            <span>Lyntia</span>
+                        </div>
+                        <div class="ecosystem-operator">
+                            <img src="images/nearip_oficial.webp" alt="NearIP" class="ecosystem-logo">
+                            <span>NearIP</span>
+                        </div>
+                        <div class="ecosystem-operator">
+                            <img src="images/correos_telecom_oficial.webp" alt="Correos Telecom" class="ecosystem-logo">
+                            <span>Correos Telecom</span>
+                        </div>
+                        <div class="ecosystem-operator">
+                            <img src="images/gtd_oficial.webp" alt="GTD" class="ecosystem-logo">
+                            <span>GTD</span>
+                        </div>
+                    </div>
+                    <p class="ecosystem-note">Conectividad directa a 9 operadores en el mismo edificio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>Redundancia Automática</h4>
+                        <p>Múltiples rutas de respaldo</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Monitorización 24x7</h4>
+                        <p>Control continuo de rendimiento</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Final -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>¿Listo para conectar tu infraestructura?</h2>
+                    <p>Nuestro equipo técnico está preparado para diseñar la solución perfecta para tu operación</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Dirección</h4>
+                                <p>Calle Marzo 16<br>28022 Madrid, España</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p>+34 912 901 868</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>oferta-operadores@ipcore.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="guarantees">
+                        <h3>Nuestras Garantías</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Respuesta en menos de 2 horas</li>
+                            <li><i class="fas fa-check"></i> Visita técnica gratuita</li>
+                            <li><i class="fas fa-check"></i> Presupuesto personalizado sin compromiso</li>
+                            <li><i class="fas fa-check"></i> Migración asistida incluida</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                 <div class="contact-form-container">
+                <form action="https://formspree.io/f/xeolzkyq" method="POST" class="contact-form" id="contactForm">
+                    <h3>Solicita Información</h3>
+                    <p>Completa el formulario y nos pondremos en contacto contigo en menos de 2 horas</p>
+                    
+                    <div class="form-group">
+                        <label for="company">Empresa *</label>
+                        <input type="text" id="company" name="company" required placeholder="Nombre de tu empresa">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre *</label>
+                            <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@empresa.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+34 XXX XXX XXX">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Cuéntanos sobre tus necesidades de conectividad..."></textarea>
+                    </div>
+                    
+                    <!-- Campos ocultos para Formspree -->
+                    <input type="hidden" name="offer" value="Rack 42U + 5 Cross-Connects - 499€/mes">
+                    <input type="hidden" name="_subject" value="Nueva consulta desde Landing Page IPcore">
+                    <input type="hidden" name="_captcha" value="true">
+                    
+                    <button type="submit" class="btn btn-primary form-submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span class="btn-text">Enviar Consulta</span>
+                    </button>
+                    
+                    <div class="form-status" id="formStatus"></div>
+                    
+                    <div class="form-security-info">
+                        <i class="fas fa-shield-alt"></i>
+                        <small>Tus datos están seguros y solo se utilizarán para contactarte sobre tu consulta.</small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ipcore</h3>
+                    <p>Datacenter carrier neutral en Madrid. Conectividad flexible y fiable para operadores de telecomunicaciones.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#servicios">Colocation</a></li>
+                        <li><a href="#conectividad">Cross-Connects</a></li>
+                        <li><a href="#servicios">Soporte Técnico</a></li>
+                        <li><a href="#servicios">Infraestructura</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#inicio">Sobre Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="/es/quality-compliance/">Calidad y Cumplimiento</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Certificaciones</h4>
+                    <div class="certifications">
+                        <span class="cert-badge">ISO-9001</span>
+                        <span class="cert-badge">ISO-50001</span>
+                        <span class="cert-badge">ISO-14001</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 IPcore Datacenters S.L. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

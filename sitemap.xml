@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://www.ipcore.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ipcore.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ipcore.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ipcore.com/en/"/>
+  </url>
+  <url>
+    <loc>https://www.ipcore.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ipcore.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ipcore.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ipcore.com/en/"/>
+  </url>
+
+  <url>
+    <loc>https://www.ipcore.com/en/quality-compliance/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ipcore.com/en/quality-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ipcore.com/es/quality-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ipcore.com/en/quality-compliance/"/>
+  </url>
+  <url>
+    <loc>https://www.ipcore.com/es/quality-compliance/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ipcore.com/en/quality-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ipcore.com/es/quality-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ipcore.com/en/quality-compliance/"/>
+  </url>
+
+  <url>
+    <loc>https://www.ipcore.com/en/cookies/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ipcore.com/en/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ipcore.com/es/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ipcore.com/en/cookies/"/>
+  </url>
+  <url>
+    <loc>https://www.ipcore.com/es/cookies/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ipcore.com/en/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ipcore.com/es/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ipcore.com/en/cookies/"/>
+  </url>
+
+  <url>
+    <loc>https://www.ipcore.com/en/legal/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ipcore.com/en/legal/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ipcore.com/es/legal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ipcore.com/en/legal/"/>
+  </url>
+  <url>
+    <loc>https://www.ipcore.com/es/legal/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ipcore.com/en/legal/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ipcore.com/es/legal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ipcore.com/en/legal/"/>
+  </url>
+
+  <url>
+    <loc>https://www.ipcore.com/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ipcore.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ipcore.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ipcore.com/en/contact/"/>
+  </url>
+  <url>
+    <loc>https://www.ipcore.com/es/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.ipcore.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.ipcore.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.ipcore.com/en/contact/"/>
+  </url>
+
+</urlset>

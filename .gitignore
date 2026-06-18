@@ -1,0 +1,17 @@
+# Secrets — the real config lives OUTSIDE the web root and is never committed.
+# (ipcore-config.sample.php IS committed; the real ipcore-config.php is not.)
+ipcore-config.php
+config.php
+.env
+*.env
+
+# Local-only archive of unused images (kept outside the repo)
+images/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*~
+*.bak
+*.backup
+*.swp
