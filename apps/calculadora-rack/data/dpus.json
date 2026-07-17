@@ -1,0 +1,10 @@
+[
+  { "brand": "Genérico", "model": "DPU genérica", "generic": true, "ports": null, "tdp_w": 75, "note": "consumo estimado editable" },
+
+  { "brand": "NVIDIA", "model": "BlueField-3 B3240", "ports": "2x200GbE", "tdp_w": 150, "year": 2023, "verify": true, "source": "https://www.nvidia.com/en-us/networking/products/data-processing-unit/" },
+  { "brand": "NVIDIA", "model": "BlueField-3 B3220", "ports": "2x100GbE", "tdp_w": 150, "year": 2023, "verify": true, "source": "https://www.nvidia.com/en-us/networking/products/data-processing-unit/" },
+  { "brand": "NVIDIA", "model": "BlueField-2", "ports": "2x100GbE", "tdp_w": 65, "year": 2020, "verify": true, "source": "https://www.nvidia.com/en-us/networking/products/data-processing-unit/" },
+  { "brand": "Intel", "model": "IPU E2000 (Mount Evans)", "ports": "2x100GbE", "tdp_w": 200, "year": 2022, "verify": true, "note": "consumo estimado, a confirmar" },
+  { "brand": "AMD", "model": "Pensando DSC2-200", "ports": "2x200GbE", "tdp_w": 150, "year": 2022, "verify": true, "note": "consumo estimado, a confirmar" },
+  { "brand": "Marvell", "model": "OCTEON 10 DPU", "ports": "hasta 400GbE", "tdp_w": 100, "year": 2022, "verify": true, "note": "consumo estimado, a confirmar" }
+]

@@ -1,0 +1,19 @@
+[
+  { "brand": "Genérico", "model": "Router genérico", "generic": true, "u": 1, "power_typ_w": 150, "power_max_w": null, "note": "consumo estimado editable" },
+
+  { "brand": "Cisco", "model": "ASR 1001-X", "u": 1, "power_typ_w": null, "power_max_w": 250, "source": "https://www.cisco.com/c/en/us/td/docs/routers/asr1000/install/guide/1001-x/asr1hig-book/router_spec.html" },
+  { "brand": "Cisco", "model": "ASR 1001-HX", "u": 1, "power_typ_w": null, "power_max_w": 400, "source": "https://www.cisco.com/c/en/us/td/docs/routers/asr1000/install/guide/1001HX_1002HX/b_ASR1001HX-1002HX_HIG/b_ASR1001HX-1002HX_HIG_appendix_01001.html" },
+  { "brand": "Cisco", "model": "ASR 1002-HX", "u": 2, "power_typ_w": null, "power_max_w": 750, "source": "https://www.cisco.com/c/en/us/td/docs/routers/asr1000/install/guide/1001HX_1002HX/b_ASR1001HX-1002HX_HIG/b_ASR1001HX-1002HX_HIG_appendix_01001.html" },
+  { "brand": "Cisco", "model": "ASR 9901", "u": 2, "power_typ_w": 850, "power_max_w": 1100, "source": "https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/datasheet-c78-740540.html" },
+  { "brand": "Cisco", "model": "ISR 4331", "u": 1, "power_typ_w": 42, "power_max_w": 250, "source": "https://www.cisco.com/c/en/us/products/collateral/routers/4000-series-integrated-services-routers-isr/data_sheet-c78-732542.html" },
+  { "brand": "Cisco", "model": "ISR 4431", "u": 1, "power_typ_w": 65, "power_max_w": 250, "source": "https://www.cisco.com/c/en/us/products/collateral/routers/4000-series-integrated-services-routers-isr/data_sheet-c78-732542.html" },
+  { "brand": "Cisco", "model": "ISR 4451", "u": 2, "power_typ_w": 158, "power_max_w": 450, "source": "https://www.cisco.com/c/en/us/products/collateral/routers/4000-series-integrated-services-routers-isr/data_sheet-c78-732542.html" },
+  { "brand": "Juniper", "model": "MX204", "u": 1, "power_typ_w": 240, "power_max_w": 280, "source": "https://www.juniper.net/documentation/us/en/hardware/mx204/topics/topic-map/mx204-power-planning.html" },
+  { "brand": "Juniper", "model": "MX304", "u": 2, "power_typ_w": 1033, "power_max_w": 1436, "source": "https://www.juniper.net/documentation/us/en/hardware/mx304/topics/topic-map/mx304-power-planning.html" },
+  { "brand": "Juniper", "model": "MX240", "u": 5, "power_typ_w": 1555, "power_max_w": null, "source": "https://www.juniper.net/documentation/us/en/hardware/mx240/topics/topic-map/mx240-power-planning.html" },
+  { "brand": "Juniper", "model": "MX480", "u": 8, "power_typ_w": 1940, "power_max_w": null, "source": "https://www.juniper.net/documentation/us/en/hardware/mx480/topics/topic-map/mx480-power-planning.html" },
+  { "brand": "Nokia", "model": "7750 SR-7", "u": 8, "power_typ_w": null, "power_max_w": 4000, "source": "https://lafibre.info/images/datacenter/201703_Nokia_7750_SR_R15.pdf" },
+  { "brand": "MikroTik", "model": "CCR2004-1G-12S+2XS", "u": 1, "power_typ_w": null, "power_max_w": 60, "source": "https://mikrotik.com/product/ccr2004_1g_12s_2xs" },
+  { "brand": "MikroTik", "model": "CCR2004-16G-2S+", "u": 1, "power_typ_w": null, "power_max_w": 48, "source": "https://mikrotik.com/product/ccr2004_16g_2splus" },
+  { "brand": "MikroTik", "model": "CCR2116-12G-4S+", "u": 1, "power_typ_w": null, "power_max_w": 83, "source": "https://mikrotik.com/product/ccr2116_12g_4splus" }
+]

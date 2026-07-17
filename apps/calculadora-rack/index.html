@@ -1,13 +1,364 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex">
-    <title>Calculadora de Rack · Próximamente — ipcore</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="Calculadora de consumo eléctrico">Calculadora de consumo eléctrico</title>
+  <link rel="icon" href="img/ipcore_new.svg" type="image/svg+xml">
+  <link rel="icon" href="data:," sizes="any">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Calculadora de Rack</h1>
-    <p>Próximamente. / Coming soon.</p>
+  <!-- Spinner de primera carga: se quita desde el JS cuando terminan de
+       precargarse los sprites + la DB (ver preloadAssets en rack.js). -->
+  <div id="loading">
+    <img src="img/ipcore_new.svg" alt="ipcore" class="loading-logo">
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="loading-text" data-i18n="Cargando…">Cargando…</div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <a href="./" class="brand-link">
+        <img src="img/ipcore_new.svg" alt="ipcore" class="title-logo">
+      </a>
+      <div class="topbar-title">
+        <div class="tt-name" data-i18n="Calculadora de consumo eléctrico">Calculadora de consumo eléctrico</div>
+        <div class="tt-desc" data-i18n="Calcula la potencia eléctrica óptima para contratar tu rack.">Calcula la potencia eléctrica óptima para contratar tu rack.</div>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <div class="lang-seg" id="lang-seg" role="group" aria-label="Idioma / Language">
+        <button class="lang-btn" data-lang="es" type="button">ES</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+      </div>
+      <button class="topbar-button" id="tour-btn" type="button" data-i18n-title="Guía rápida" title="Guía rápida">
+        <span class="topbar-button-icon">?</span><span data-i18n="Guía">Guía</span>
+      </button>
+      <button class="topbar-button" id="export-svg" type="button" data-i18n-title="Descargar el plano como imagen" title="Descargar el plano como imagen">
+        <svg class="topbar-button-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 20h14"/></svg><span data-i18n="Exportar">Exportar</span>
+      </button>
+      <button class="topbar-button" id="send-mail" type="button" data-i18n-title="Enviar la cotización por correo a los ejecutivos de IPcore" title="Enviar la cotización por correo a los ejecutivos de IPcore">
+        <span class="topbar-button-icon">✉</span><span data-i18n="Enviar por mail">Enviar por mail</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Barra de "añadir": 4 botones PRINCIPALES para meter equipos nuevos.
+         Escritorio: columna izquierda. Móvil: barra inferior fija. "Más" abre
+         el resto (Router + Infraestructura). Se reusan los IDs de siempre para
+         no re-cablear los modales (#add-server=Host, #add-switch, #add-firewall,
+         #dock-add=Más → selector). -->
+    <aside class="addbar" id="addbar" data-i18n-aria="Añadir equipos" aria-label="Añadir equipos">
+      <!-- "Nuevo rack" = crear un contenedor nuevo (otra categoría que meter
+           equipos): destacado con borde verde y separado del grupo por un
+           divisor. Desktop: arriba del todo. Móvil: primero (izquierda). -->
+      <button class="add-main add-main--rack" id="add-rack-btn" type="button" data-i18n-title="Crear un rack nuevo (vacío)" title="Crear un rack nuevo (vacío)">
+        <svg class="add-main-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span class="add-main-tt" data-i18n="Rack">Rack</span>
+      </button>
+      <span class="addbar-div" aria-hidden="true"></span>
+      <button class="add-main add-main--primary" id="add-server" type="button">
+        <svg class="add-main-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><line x1="7" y1="7.5" x2="7.01" y2="7.5"/><line x1="7" y1="16.5" x2="7.01" y2="16.5"/></svg><span class="add-main-tt" data-i18n="Host">Host</span>
+      </button>
+      <button class="add-main" id="add-switch" type="button">
+        <svg class="add-main-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 3 20 7 16 11"/><line x1="20" y1="7" x2="5" y2="7"/><polyline points="8 13 4 17 8 21"/><line x1="4" y1="17" x2="19" y2="17"/></svg><span class="add-main-tt" data-i18n="Switch">Switch</span>
+      </button>
+      <button class="add-main" id="add-storage" type="button" data-i18n-title="Cabina de discos" title="Cabina de discos">
+        <svg class="add-main-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M7 5v14M11 5v14M15 5v14"/><line x1="18" y1="8.5" x2="18" y2="8.51"/><line x1="18" y1="15.5" x2="18" y2="15.51"/></svg><span class="add-main-tt" data-i18n="Cabina">Cabina</span>
+      </button>
+      <button class="add-main" id="dock-add" type="button" aria-haspopup="dialog" aria-controls="add-picker">
+        <svg class="add-main-ico" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg><span class="add-main-tt" data-i18n="Más">Más</span>
+      </button>
+    </aside>
+
+    <section class="rack-stage">
+      <div class="rack-header">
+        <!-- Lectura (ocupación · consumo · Plan) + navegación/ajustes del rack. -->
+        <div class="rack-stats" id="rack-stats"></div>
+        <div class="rack-nav">
+          <!-- Conmutador de rack: ‹ nombre › (sin menú de selección). -->
+          <div class="rack-switch" role="group" data-i18n-aria="Cambiar de rack" aria-label="Cambiar de rack">
+            <button class="switch-arrow" id="rack-prev" type="button" data-i18n-aria="Rack anterior" aria-label="Rack anterior">‹</button>
+            <span class="switch-name" id="rack-name" data-i18n-title="Doble clic para renombrar" title="Doble clic para renombrar">Rack 1</span>
+            <button class="switch-arrow" id="rack-next" type="button" data-i18n-aria="Rack siguiente" aria-label="Rack siguiente">›</button>
+          </div>
+          <button class="nav-btn icon" id="dock-settings" type="button" aria-haspopup="menu" aria-expanded="false" data-i18n-title="Ajustes del rack activo" title="Ajustes del rack activo">
+            <span aria-hidden="true">⚙</span>
+          </button>
+        </div>
+      </div>
+      <!-- Carrusel: rack activo (centro) + vecinos difuminados detrás (mini).
+           Las zonas laterales (cf-hotzone) son clicables para saltar al vecino. -->
+      <div class="rack-plot-wrap">
+        <!-- La fila de vecinos (varios por lado) se dibuja en #rack-minis, creado
+             dinámicamente por el JS detrás del plot vivo (ver layoutRestMinis). -->
+        <div id="rack-plot"></div>
+        <div id="rack-overlay"></div>
+        <button class="cf-hotzone prev" id="cf-prev" type="button" data-i18n-aria="Rack anterior" aria-label="Rack anterior" hidden><span class="cf-chev" aria-hidden="true">‹</span></button>
+        <button class="cf-hotzone next" id="cf-next" type="button" data-i18n-aria="Rack siguiente" aria-label="Rack siguiente" hidden><span class="cf-chev" aria-hidden="true">›</span></button>
+        <!-- Tarjeta de totales (SÓLO móvil): HTML superpuesto, posicionado en píxeles
+             → no depende de la escala del plot, así que nunca colapsa en viewports
+             cortos. En desktop se usa la columna dibujada en el plot. -->
+        <div id="rack-totals" class="empty" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Menú emergente de ⚙ (ajustes del rack; se rellena desde el JS al abrir). -->
+  <div class="dock-pop" id="pop-settings" role="menu" hidden></div>
+
+  <!-- Lupa (sólo móvil): alterna Ajustar ↔ Ampliar. En "Ampliar" el rack va a
+       ancho completo, alto scrollable, y auto-centra el item seleccionado. -->
+  <button class="zoom-fab" id="zoom-btn" type="button" aria-pressed="false" data-i18n-aria="Ampliar" aria-label="Ampliar" data-i18n-title="Ampliar (seguir el equipo)" title="Ampliar (seguir el equipo)">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M21 21l-5.4-5.4"></path>
+      <line class="zoom-plus-v" x1="10.5" y1="7.5" x2="10.5" y2="13.5"></line>
+      <line x1="7.5" y1="10.5" x2="13.5" y2="10.5"></line>
+    </svg>
+  </button>
+
+  <!-- Selector unificado "Añadir" (oculto hasta abrirlo con el FAB).
+       En móvil se muestra como hoja inferior; en escritorio, centrado. -->
+  <div class="modal-overlay picker-overlay" id="add-picker" hidden>
+    <div class="modal picker" role="dialog" aria-modal="true" aria-labelledby="pk-title">
+      <div class="modal-head">
+        <h2 class="modal-title" id="pk-title" data-i18n="Más equipos">Más equipos</h2>
+        <button class="modal-close" id="pk-close" type="button" data-i18n-aria="Cerrar" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal-body picker-body">
+        <div class="pick-group-title" data-i18n="Equipos">Equipos</div>
+        <div class="pick-grid">
+          <button class="pick-card pick-card--device" id="add-router" type="button">
+            <svg class="pick-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="13" width="18" height="7" rx="1.5"/><line x1="7" y1="16.5" x2="7.01" y2="16.5"/><path d="M8.5 9.5a5 5 0 0 1 7 0"/><path d="M6 7a8 8 0 0 1 12 0"/></svg>
+            <span class="pick-tt"><span class="pick-nm" data-i18n="Router">Router</span><span class="pick-hint" data-i18n="catálogo · consumo">catálogo · consumo</span></span>
+          </button>
+          <button class="pick-card pick-card--device" id="add-firewall" type="button">
+            <svg class="pick-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.2-3 7.5-7 9-4-1.5-7-4.8-7-9V6z"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+            <span class="pick-tt"><span class="pick-nm" data-i18n="Firewall">Firewall</span><span class="pick-hint" data-i18n="consumo editable">consumo editable</span></span>
+          </button>
+        </div>
+
+        <div class="pick-group-title"><span data-i18n="Infraestructura">Infraestructura</span> <span class="pick-group-note" data-i18n="(sin consumo)">(sin consumo)</span></div>
+        <div class="pick-grid" id="pick-catalog"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal "Añadir servidor" (oculto hasta abrirlo) -->
+  <div class="modal-overlay" id="server-modal" hidden>
+    <div class="modal wizard" role="dialog" aria-modal="true" aria-labelledby="sm-title">
+      <div class="modal-head">
+        <h2 class="modal-title" id="sm-title" data-i18n="Nuevo servidor">Nuevo servidor</h2>
+        <button class="modal-close" id="sm-close" type="button" data-i18n-aria="Cerrar" aria-label="Cerrar">✕</button>
+      </div>
+
+      <!-- Barra de pasos del asistente -->
+      <ol class="wiz-steps" id="sm-steps">
+        <li class="wiz-step is-active" data-step="0"><span class="wiz-dot">1</span><span class="wiz-lbl" data-i18n="CPUs">CPUs</span></li>
+        <li class="wiz-step" data-step="1"><span class="wiz-dot">2</span><span class="wiz-lbl" data-i18n="GPUs">GPUs</span></li>
+        <li class="wiz-step" data-step="2"><span class="wiz-dot">3</span><span class="wiz-lbl" data-i18n="Resumen">Resumen</span></li>
+      </ol>
+
+      <div class="modal-body wiz-body">
+        <!-- Paso 1 · CPUs -->
+        <section class="wiz-pane is-active" data-pane="0">
+          <p class="wiz-lead" data-i18n="Procesadores">Procesadores</p>
+          <p class="wiz-hint" data-i18n="Por defecto, un servidor de doble zócalo con CPU de gama datacenter. Ajusta si hace falta.">Por defecto, un servidor de doble zócalo con CPU de gama datacenter. Ajusta si hace falta.</p>
+          <div class="form-row">
+            <label class="form-label" for="sm-cpu-model" data-i18n="Modelo">Modelo</label>
+            <select class="form-input" id="sm-cpu-model"></select>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="sm-cpu-qty" data-i18n="Cantidad">Cantidad</label>
+            <input class="form-input" id="sm-cpu-qty" type="number" min="1" max="8" value="1">
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="sm-cpu-watt" data-i18n="Consumo por CPU (W)">Consumo por CPU (W)</label>
+            <input class="form-input" id="sm-cpu-watt" type="number" min="0" step="5">
+          </div>
+          <div class="wiz-sub"><span data-i18n="Subtotal CPUs">Subtotal CPUs</span> <b id="sm-cpu-sub">—</b></div>
+        </section>
+
+        <!-- Paso 2 · GPUs -->
+        <section class="wiz-pane" data-pane="1">
+          <p class="wiz-lead" data-i18n="Aceleradores / GPUs">Aceleradores / GPUs</p>
+          <p class="wiz-hint" data-i18n="La mayoría de servidores no llevan GPU. Deja la cantidad en 0 si no aplica.">La mayoría de servidores no llevan GPU. Deja la cantidad en 0 si no aplica.</p>
+          <div class="form-row">
+            <label class="form-label" for="sm-gpu-model" data-i18n="Modelo">Modelo</label>
+            <select class="form-input" id="sm-gpu-model"></select>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="sm-gpu-qty" data-i18n="Cantidad">Cantidad</label>
+            <input class="form-input" id="sm-gpu-qty" type="number" min="0" max="8" value="0">
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="sm-gpu-watt" data-i18n="Consumo por GPU (W)">Consumo por GPU (W)</label>
+            <input class="form-input" id="sm-gpu-watt" type="number" min="0" step="10">
+          </div>
+          <div class="wiz-sub"><span data-i18n="Subtotal GPUs">Subtotal GPUs</span> <b id="sm-gpu-sub">—</b></div>
+        </section>
+
+        <!-- Paso 3 · Resumen -->
+        <section class="wiz-pane" data-pane="2">
+          <p class="wiz-lead" data-i18n="Resumen">Resumen</p>
+          <p class="wiz-hint" data-i18n="Revisa el nombre, el tamaño y el resto del equipamiento antes de añadirlo.">Revisa el nombre, el tamaño y el resto del equipamiento antes de añadirlo.</p>
+          <div class="form-row">
+            <label class="form-label" for="sm-name" data-i18n="Nombre">Nombre</label>
+            <input class="form-input" id="sm-name" type="text" value="Servidor" maxlength="40">
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="sm-u" data-i18n="Tamaño (U)">Tamaño (U)</label>
+            <input class="form-input" id="sm-u" type="number" min="1" max="20" value="1">
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="sm-base" data-i18n-title="Consumo del chasis (placa, ventilación) sin CPU/GPU/discos/RAM" title="Consumo del chasis (placa, ventilación) sin CPU/GPU/discos/RAM" data-i18n="Consumo base del chasis (W)">Consumo base del chasis (W)</label>
+            <input class="form-input" id="sm-base" type="number" min="0" step="10" value="100">
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="sm-disks" data-i18n-title="~5 W por disco (SSD generalista); un HDD 3,5&quot; sería más. Se cuenta el tope del bloque" title="~5 W por disco (SSD generalista); un HDD 3,5&quot; sería más. Se cuenta el tope del bloque" data-i18n="Discos (~5 W c/u)">Discos (~5 W c/u)</label>
+            <select class="form-input" id="sm-disks">
+              <option value="0" data-i18n="Sin discos">Sin discos</option>
+              <option value="20" selected>1–4 (~20 W)</option>
+              <option value="40">4–8 (~40 W)</option>
+              <option value="80">8–16 (~80 W)</option>
+              <option value="120">16–24 (~120 W)</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="sm-ram" data-i18n-title="Estimado ~0,16 W por GB (DDR4 RDIMM en carga típica)" title="Estimado ~0,16 W por GB (DDR4 RDIMM en carga típica)" data-i18n="Memoria (RAM)">Memoria (RAM)</label>
+            <select class="form-input" id="sm-ram">
+              <option value="0" data-i18n="Sin declarar">Sin declarar</option>
+              <option value="20" selected>≤128 GB (~20 W)</option>
+              <option value="40">128–256 GB (~40 W)</option>
+              <option value="80">256–512 GB (~80 W)</option>
+              <option value="160">512 GB–1 TB (~160 W)</option>
+              <option value="250">&gt;1 TB (~250 W)</option>
+            </select>
+          </div>
+          <ul class="wiz-recap" id="sm-recap"></ul>
+        </section>
+      </div>
+
+      <div class="modal-foot wiz-foot">
+        <div class="modal-total"><span data-i18n="Consumo estimado">Consumo estimado</span> <b id="sm-total">100 W</b></div>
+        <div class="modal-actions">
+          <button class="panel-btn" id="sm-back" type="button" data-i18n="Atrás" hidden>Atrás</button>
+          <button class="topbar-button primary" id="sm-next" type="button" data-i18n="Continuar">Continuar</button>
+          <button class="topbar-button primary" id="sm-confirm" type="button" data-i18n="Añadir al rack" hidden>Añadir al rack</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal "Nuevo rack": pregunta ancho/alto (lo de ⚙) al crear un rack. Una
+       sola pantalla, con el mismo estilo verde del asistente de servidor. -->
+  <div class="modal-overlay" id="rack-modal" hidden>
+    <div class="modal wizard" role="dialog" aria-modal="true" aria-labelledby="rm-title">
+      <div class="modal-head">
+        <h2 class="modal-title" id="rm-title" data-i18n="Nuevo rack">Nuevo rack</h2>
+        <button class="modal-close" id="rm-close" type="button" data-i18n-aria="Cerrar" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <label class="form-label" for="rm-name" data-i18n="Nombre">Nombre</label>
+          <input class="form-input" id="rm-name" type="text" maxlength="40">
+        </div>
+        <div class="form-row">
+          <label class="form-label" data-i18n="Ancho del armario">Ancho del armario</label>
+          <div class="pop-seg" id="rm-width" role="group" data-i18n-aria="Ancho" aria-label="Ancho">
+            <button class="pop-seg-btn" type="button" data-w="600">60 cm</button>
+            <button class="pop-seg-btn on" type="button" data-w="800">80 cm</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <div class="modal-total"></div>
+        <div class="modal-actions">
+          <button class="panel-btn" id="rm-cancel" type="button" data-i18n="Cancelar">Cancelar</button>
+          <button class="topbar-button primary" id="rm-create" type="button" data-i18n="Crear rack">Crear rack</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal "Añadir switch/router" (oculto hasta abrirlo) -->
+  <div class="modal-overlay" id="device-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dm-title">
+      <div class="modal-head">
+        <h2 class="modal-title" id="dm-title" data-i18n="Añadir switch">Añadir switch</h2>
+        <button class="modal-close" id="dm-close" type="button" data-i18n-aria="Cerrar" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row" id="dm-model-row">
+          <label class="form-label" for="dm-model" data-i18n="Modelo">Modelo</label>
+          <select class="form-input" id="dm-model"></select>
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="dm-name" data-i18n="Nombre">Nombre</label>
+          <input class="form-input" id="dm-name" type="text" maxlength="40">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="dm-u" data-i18n="Tamaño (U)">Tamaño (U)</label>
+          <input class="form-input" id="dm-u" type="number" min="1" max="20" value="1">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="dm-watt" data-i18n="Consumo (W)">Consumo (W)</label>
+          <input class="form-input" id="dm-watt" type="number" min="0" step="10">
+        </div>
+      </div>
+      <div class="modal-foot">
+        <div class="modal-total"><span data-i18n="Consumo:">Consumo:</span> <b id="dm-total">— W</b></div>
+        <div class="modal-actions">
+          <button class="panel-btn" id="dm-cancel" type="button" data-i18n="Cancelar">Cancelar</button>
+          <button class="topbar-button primary" id="dm-confirm" type="button" data-i18n="Añadir al rack">Añadir al rack</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal "Enviar por mail" (oculto hasta abrirlo): manda la cotización (la
+       misma imagen del export) a los ejecutivos de IPcore vía el mailer. -->
+  <div class="modal-overlay" id="mail-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mm-title">
+      <div class="modal-head">
+        <h2 class="modal-title" id="mm-title" data-i18n="Enviar cotización por mail">Enviar cotización por mail</h2>
+        <button class="modal-close" id="mm-close" type="button" data-i18n-aria="Cerrar" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-hint" data-i18n="Se enviará la cotización (imagen con todos los racks) a nuestros ejecutivos.">Se enviará la cotización (imagen con todos los racks) a nuestros ejecutivos.</p>
+        <div class="form-row">
+          <label class="form-label" for="mm-name" data-i18n="Tu nombre">Tu nombre</label>
+          <input class="form-input" id="mm-name" type="text" maxlength="80" autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="mm-email" data-i18n="Tu email (para que te respondan)">Tu email (para que te respondan)</label>
+          <input class="form-input" id="mm-email" type="email" maxlength="120" autocomplete="email">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="mm-note" data-i18n="Mensaje (opcional)">Mensaje (opcional)</label>
+          <textarea class="form-input" id="mm-note" rows="3" maxlength="1000"></textarea>
+          <div class="form-count"><span id="mm-note-count">0</span>/1000</div>
+        </div>
+        <!-- Honeypot anti-bot: oculto a humanos; si se rellena, el servidor descarta. -->
+        <input type="text" id="mm-website" name="website" tabindex="-1" autocomplete="off"
+               aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      </div>
+      <div class="modal-foot">
+        <div class="modal-total"><span id="mm-status"></span></div>
+        <div class="modal-actions">
+          <button class="panel-btn" id="mm-cancel" type="button" data-i18n="Cancelar">Cancelar</button>
+          <button class="topbar-button primary" id="mm-send" type="button" data-i18n="Enviar">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/plotly-3.0.0.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/faces.js"></script>
+  <script src="js/rack.js"></script>
 </body>
 </html>
